@@ -8,9 +8,9 @@
 var app = angular.module('ab', ['services.breadcrumbs'])
   .config(['$routeProvider', function($routeProvider) {
       $routeProvider
-          .when('/', { controller: 'HomeController', templateUrl: '/vw/home.html', label: 'Home' })
-          .when('/stock/:stock', { controller: 'StockController', templateUrl: '/vw/stock.html', label: 'Stock' })
-          .when('/stock/:stock/detail', { controller: 'StockDetailController', templateUrl: '/vw/stock-detail.html', label: 'Stock Detail' })
+          .when('/', { controller: 'HomeController', templateUrl: 'vw/home.html', label: 'Home' })
+          .when('/stock/:stock', { controller: 'StockController', templateUrl: 'vw/stock.html', label: 'Stock' })
+          .when('/stock/:stock/detail', { controller: 'StockDetailController', templateUrl: 'vw/stock-detail.html', label: 'Stock Detail' })
           .otherwise({ redirectTo: '/' });
   }]);
 
