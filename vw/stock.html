@@ -3,10 +3,9 @@
     <h3 class="panel-title">{{breadcrumb.label}}</h3>
   </div>
   <div class="panel-body">
-    <ul class="list-group">
-      {{summary}}
-      {{stock.price}}
-      <a href="/stock/{{stock.symbol}}/detail">More details</a>
-    </ul>
+    <p>{{summary}}</p>
+    <br>
+    <p><strong>Price:</strong> {{stock.price}}</p>
+    <p><a href="#/stock/{{stock.symbol}}/detail">More details</a></p>
   </div>
 </div>
