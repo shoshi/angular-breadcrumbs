@@ -1,28 +1,35 @@
-$(function() {
-  
-  var myApp = myApp || {};
+/**
+ * Example application for angular-breadcrumbs.js (https://github.com/ianwalter/angular-breadcrumbs)
+ *
+ * @author Ian Kennington Walter (http://www.iankwalter.com)
+ */
+"use strict";
 
-  myApp.Model = Backbone.Model.extend({
-  });
+var app = angular.module('ab', ['services.breadcrumbs'])
+  .config(['$routeProvider', function($routeProvider) {
+      $routeProvider
+          .when('/', { controller: 'HomeController', templateUrl: '/vw/home.html', label: 'Customers' })
+          .when('/stock/:stock', { controller: 'StockController', templateUrl: '/vw/stock.html', label: 'Stock' })
+          .when('/stock/:stock/detail', { controller: 'StockDetailController', templateUrl: '/vw/stock-detail.html', label: 'Stock Detail' })
+          .otherwise({ redirectTo: '/' });
+  }]);
 
-  myApp.Collection = Backbone.Collection.extend({
-     model: myApp.Model
-  });
+app.controller('HomeController', ['$scope', 'breadcrumbs', function($scope, breadcrumbs) {
+  $scope.breadcrumbs = breadcrumbs;
 
-  myApp.AppView = Backbone.View.extend({
-    el: '#messageContainer',
-    initialize: function() {
-      this.model = new myApp.Model({
-        welcomeMessage: 'Welcome to your 3b page. Enjoy building.'
-      });
-      this.collection = new myApp.Collection();
-      this.template = Handlebars.compile($('#messageTemplate').html());
-    },
-    render: function() {
-      $(this.el).html(this.template(this));
-    }
-  });
+  $scope.summary = "This is the Home page";
+  $scope.stocks = {
+    'AAPL': { symbol: 'AAPL', price: '493.03', revenue: '3,303,403,203' },
+    'TSLA': { symbol: 'TSLA', price: '182.45', revenue: '121,203,542' }
+  };
+}]);
 
-  myApp.app = new myApp.AppView();
-  myApp.app.render();
-});
+app.controller('StockController', ['$scope', '$routeParams', function($scope, $routeParams) {
+  $scope.stock = $scope.stocks[$routeParams['stock']];
+  $scope.summary = "This is the Stock page";
+}]);
+
+app.controller('StockDetailController', ['$scope', function($scope) {
+  $scope.stock = $scope.stocks[$routeParams['stock']];
+  $scope.summary = "This is the Stock Detaill page";
+}]);
