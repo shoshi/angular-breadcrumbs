@@ -47,3 +47,8 @@ unlinked.
 ```
 
 That's it! You should now have breadcrumb navigation that can even handle nested routes.
+
+I hope you find this useful.
+
+Thanks,
+[Ian](http://www.iankwalter.com)
