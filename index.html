@@ -33,10 +33,9 @@
             <h4>A better AngularJS service to help with breadcrumb-style navigation between views.</h4>
           </header>
           <br>
-            <ol class="breadcrumb">
-                <li ng-repeat="breadcrumb in breadcrumbs.getAll()"><a href="#{{breadcrumb.path}}" ng-hide="$last">{{breadcrumb.label}}</a><span ng-show="$last">{{breadcrumb.label}}</span></li>
-            </ol>
-          <br>
+          <ol class="ab-nav breadcrumb">
+            <li ng-repeat="breadcrumb in breadcrumbs.getAll()"><a href="#{{breadcrumb.path}}" ng-hide="$last">{{breadcrumb.label}}</a><span ng-show="$last">{{breadcrumb.label}}</span></li>
+          </ol>
           <div ng-view ng-cloak></div>
         </div>
       </div>

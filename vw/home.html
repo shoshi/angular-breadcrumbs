@@ -1,15 +1,10 @@
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{breadcrumb.label}}</h3>
-  </div>
   <div class="panel-body">
     <p>{{summary}}</p>
     <br>
     <p><h4>Stocks:</h4></p>
-    <p>
-      <div class="list-group">
-        <a ng-repeat="stock in stocks" href="#/stock/{{stock.symbol}}" class="list-group-item">{{stock.symbol}}</a>
-      </div>
-    </p>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="stock in stocks" href="#/stock/{{stock.symbol}}" class="list-group-item">{{stock.symbol}}</a>
   </div>
 </div>

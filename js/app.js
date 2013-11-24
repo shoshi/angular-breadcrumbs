@@ -22,16 +22,16 @@ app.stocks = {
 app.controller('HomeController', ['$scope', 'breadcrumbs', function($scope, breadcrumbs) {
   $scope.breadcrumbs = breadcrumbs;
 
-  $scope.summary = "This is the Home page";
+  $scope.summary = "This is the Home page.";
   $scope.stocks = app.stocks;
 }]);
 
 app.controller('StockController', ['$scope', '$routeParams', function($scope, $routeParams) {
   $scope.stock = app.stocks[$routeParams['stock']];
-  $scope.summary = "This is the Stock page";
+  $scope.summary = "This is the Stock page.";
 }]);
 
 app.controller('StockDetailController', ['$scope', '$routeParams', function($scope, $routeParams) {
   $scope.stock = app.stocks[$routeParams['stock']];
-  $scope.summary = "This is the Stock Detaill page";
+  $scope.summary = "This is the Stock Detaill page.";
 }]);
